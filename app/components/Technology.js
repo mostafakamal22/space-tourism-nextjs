@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { handleUpdate } from "../utils/animateImgs";
-import { technologies } from "../utils/data";
-import { CONTAINER, TECHNOLOGY } from "../utils/tailwindClasses";
+import { handleUpdate } from "../../utils/animateImgs";
+import { technologies } from "../../utils/data";
+import { CONTAINER, TECHNOLOGY } from "../../utils/tailwindClasses";
 
 export default function Technology() {
   //change between portrait/landsacpe image
@@ -46,7 +46,7 @@ export default function Technology() {
           </header>
 
           <figure className={TECHNOLOGY.figure.join(" ")}>
-            <img
+            {/* <img
               className="tech-img transition-all duration-[450ms] ease-in-out"
               src={
                 isPortrait >= 992
@@ -54,7 +54,7 @@ export default function Technology() {
                   : activeTechnology[1][0]
               }
               alt="space Technology"
-            ></img>
+            ></img> */}
           </figure>
 
           <div className={TECHNOLOGY.infoDev.join(" ")}>

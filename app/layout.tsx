@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar";
 import "./globals.css";
 import { Bellefair, Barlow_Condensed } from "next/font/google";
 
@@ -7,14 +8,16 @@ export const metadata = {
 };
 
 const bellefair = Bellefair({
-  display: "swap",
   weight: "400",
+  variable: "--font-bellefair",
   subsets: ["latin"],
+  display: "swap",
 });
 const barlowCondensed = Barlow_Condensed({
-  display: "swap",
   weight: ["400", "300", "600", "800"],
   subsets: ["latin"],
+  variable: "--font-barlow-condensed",
+  display: "swap",
 });
 
 export default function RootLayout({
@@ -23,8 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={barlowCondensed.className}>
-      <body className={bellefair.className}>{children}</body>
+    <html
+      lang="en"
+      className={`${bellefair.variable} ${barlowCondensed.variable}`}
+    >
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

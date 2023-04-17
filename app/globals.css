@@ -12,9 +12,10 @@
 
 :root {
   font-size: 10px;
-  font-size: 10px;
+  overflow-x: hidden;
 }
 
 body {
   background: #0b0d17;
+  color: white;
 }

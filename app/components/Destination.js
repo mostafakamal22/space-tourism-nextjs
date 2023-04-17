@@ -39,11 +39,11 @@ export default function Destination() {
             </h5>
 
             <figure className={DESTINATION.figure.join(" ")}>
-              <img
+              {/* <img
                 className="travel-img transition-all duration-[450ms] ease-in-out"
                 src={activeTravel[1]}
                 alt="destination"
-              ></img>
+              ></img> */}
             </figure>
           </header>
 
