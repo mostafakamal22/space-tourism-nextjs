@@ -1,5 +1,5 @@
 import Link from "next/link";
-import notFoundImg from "/assets/shared/not-found.svg";
+import notFoundImg from "public/assets/shared/not-found.svg";
 import { CONTAINER, NOTFOUND } from "@/utils/tailwindClasses";
 import Image from "next/image";
 

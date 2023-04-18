@@ -1,34 +1,17 @@
 "use client";
-// import { useEffect, useState } from "react";
-import { handleUpdate } from "@/utils/animateImgs";
 import { Travel, travels } from "@/utils/data";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
 import { EffectFade } from "swiper";
-
-// Import Swiper styles
-import "swiper/css/bundle";
 
 function Destination() {
   //state for active travel
   const [activeTravel, setActiveTravel] = useState<Travel>(travels[0]);
 
-  // //update tabs active state
-  // useEffect(() => {
-  //   const tabs = document.getElementsByClassName("tabs");
-  //   //remove active classe from all tabs first
-  //   for (const tab of tabs) {
-  //     tab.classList.remove("after:!opacity-[100%]", "after:!visible");
-  //   }
-  //   //then add the active class to the active tab only
-  //   tabs[activeTravel[5]].classList.add(
-  //     "after:!opacity-[100%]",
-  //     "after:!visible"
-  //   );
-  // }, [activeTravel]);
+  const swiperRef = useRef<SwiperRef>(null);
 
   const carouselImages = useMemo(
     () =>
@@ -56,7 +39,17 @@ function Destination() {
             </h5>
 
             <figure className="w-[17rem] h-[17rem] mx-auto my-[3rem] tablet:w-[30rem] tablet:h-[30rem]  pre-laptop:ml-[0] pre-laptop:mt-auto laptop:w-[44.5rem] laptop:h-[44.5rem]">
-              <Swiper modules={[EffectFade]}>{carouselImages}</Swiper>
+              <Swiper
+                ref={swiperRef}
+                fadeEffect={{ crossFade: true }}
+                modules={[EffectFade]}
+                effect="fade"
+                onSlideChange={(swiper) => {
+                  setActiveTravel(travels[swiper.activeIndex]);
+                }}
+              >
+                {carouselImages}
+              </Swiper>
             </figure>
           </header>
 
@@ -64,19 +57,15 @@ function Destination() {
             <ul className="flex justify-center mb-[2rem] laptop:justify-start">
               {travels.map((travel, index) => (
                 <li
-                  className="tabs text-nav-link text-light-blue ml-[1rem] z-1 relative after:w-[80%] after:absolute after:transition-all  after:border-[0.2rem] after:opacity-[50%] after:ease-in-out after:bottom-[-.25rem] after:left-[0] after:invisible hover:after:visible"
-                  key={index}
+                  className={`text-nav-link text-light-blue ml-[1rem] z-1 relative after:w-[80%] after:absolute after:transition-all  after:border-[0.2rem] after:opacity-[50%] after:ease-in-out after:bottom-[-.25rem] after:left-[0]  hover:after:visible ${
+                    travel.id === activeTravel.id
+                      ? "after:visible"
+                      : "after:invisible"
+                  }`}
+                  key={travel.id}
                 >
                   <button
-                    onClick={() =>
-                      handleUpdate(
-                        index,
-                        "travel-img",
-                        activeTravel,
-                        setActiveTravel,
-                        travels
-                      )
-                    }
+                    onClick={() => swiperRef?.current?.swiper?.slideTo(index)}
                     className="tracking-[1px] laptop:tracking-[2px]"
                   >
                     {travel.name}
@@ -85,10 +74,10 @@ function Destination() {
               ))}
             </ul>
 
-            <h2 className="text-h2 font-Bellefair">{travels[0].name}</h2>
+            <h2 className="text-h2 font-Bellefair">{activeTravel.name}</h2>
 
             <p className="max-w-[57rem] text-body-text text-light-blue mb-[3rem] tablet:mb-[4rem] laptop:max-w-[47rem]">
-              {travels[0].description}
+              {activeTravel.description}
             </p>
 
             <hr className="border-lighting/[.25] mb-[2rem]"></hr>
@@ -99,7 +88,7 @@ function Destination() {
                   AVG. DISTANCE
                 </p>
                 <h5 className="text-sub-h1 font-Bellefair">
-                  {travels[0].distance}
+                  {activeTravel.distance}
                 </h5>
               </div>
               <div className="tablet:p-[2rem] tablet:ml-[1rem]">
@@ -107,7 +96,7 @@ function Destination() {
                   EST. TRAVEL TIME
                 </p>
                 <h5 className="text-sub-h1 font-Bellefair">
-                  {travels[0].time}
+                  {activeTravel.time}
                 </h5>
               </div>
             </div>
