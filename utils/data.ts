@@ -15,44 +15,55 @@ import spaceCapsulePic from "/public/assets/technology/image-space-capsule-lands
 import spaceCapsulePicPortrait from "/public/assets/technology/image-space-capsule-portrait.jpg";
 import spacePortPic from "/public/assets/technology/image-spaceport-landscape.jpg";
 import spacePortPicPortrait from "/public/assets/technology/image-spaceport-portrait.jpg";
+import { StaticImageData } from "next/image";
+import { nanoid } from "nanoid";
+
+export type Travel = {
+  name: string;
+  image: StaticImageData;
+  description: string;
+  distance: string;
+  time: string;
+  id: string;
+};
 
 //Destination Data
-export const travels = [
+export const travels: Travel[] = [
   {
-    travelName: "MOON",
-    travelImg: moonImg,
-    travelParagraph:
+    name: "MOON",
+    image: moonImg,
+    description:
       "See our planet as you've never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you're there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
-    travelDistance: "384,400 KM",
-    travelTime: "3 DAYS",
-    indexId: 0,
+    distance: "384,400 KM",
+    time: "3 DAYS",
+    id: nanoid(),
   },
   {
-    travelName: "MARS",
-    travelImg: marsImg,
-    travelParagraph:
+    name: "MARS",
+    image: marsImg,
+    description:
       "Don't forget to pack your hiking boots. You'll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It's two and a half times the size of Everest!",
-    travelDistance: "225 MIL. KM",
-    travelTime: "9 MONTHS",
-    indexId: 1,
+    distance: "225 MIL. KM",
+    time: "9 MONTHS",
+    id: nanoid(),
   },
   {
-    travelName: "EUROPA",
-    travelImg: europaImg,
-    travelParagraph:
+    name: "EUROPA",
+    image: europaImg,
+    description:
       "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover's dream. With an icy surface, it's perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.",
-    travelDistance: "628 MIL. KM",
-    travelTime: "3 YEARS",
-    indexId: 2,
+    distance: "628 MIL. KM",
+    time: "3 YEARS",
+    id: nanoid(),
   },
   {
-    travelName: "TITAN",
-    travelImg: titanImg,
-    travelParagraph:
+    name: "TITAN",
+    image: titanImg,
+    description:
       "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
-    travelDistance: "1.6 BIL. KM",
-    travelTime: "7 YEARS",
-    indexId: 3,
+    distance: "1.6 BIL. KM",
+    time: "7 YEARS",
+    id: nanoid(),
   },
 ];
 
@@ -64,7 +75,7 @@ export const crewMembers = [
     memberJob: "Commander",
     memberBio:
       "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
-    indexId: 0,
+    id: 0,
   },
   {
     memberName: "MARK SHUTTLEWORTH",
@@ -72,7 +83,7 @@ export const crewMembers = [
     memberJob: "Mission Specialist",
     memberBio:
       "Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu operating system. Shuttleworth became the first South African to travel to space as a space tourist.",
-    indexId: 1,
+    id: 1,
   },
   {
     memberName: "Victor Glover",

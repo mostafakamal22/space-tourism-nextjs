@@ -1,14 +1,20 @@
 "use client";
 // import { useEffect, useState } from "react";
 import { handleUpdate } from "@/utils/animateImgs";
-import { travels } from "@/utils/data";
+import { Travel, travels } from "@/utils/data";
 import Image from "next/image";
+import { useMemo, useState } from "react";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade } from "swiper";
+
+// Import Swiper styles
+import "swiper/css/bundle";
 
 function Destination() {
   //state for active travel
-  // const [activeTravel, setActiveTravel] = useState([
-  //   ...Object.values(travels[0]),
-  // ]);
+  const [activeTravel, setActiveTravel] = useState<Travel>(travels[0]);
 
   // //update tabs active state
   // useEffect(() => {
@@ -24,6 +30,21 @@ function Destination() {
   //   );
   // }, [activeTravel]);
 
+  const carouselImages = useMemo(
+    () =>
+      travels.map((travel) => (
+        <SwiperSlide key={travel.id}>
+          <Image
+            src={travel.image}
+            width={"200"}
+            height={"200"}
+            alt={travel.name}
+          />
+        </SwiperSlide>
+      )),
+    []
+  );
+
   return (
     <div className="min-h-[100vh] font-Barlow  bg-no-repeat bg-cover bg-center bg-destination-mobile tablet:bg-destination-tablet laptop:bg-destination-desktop">
       <main className="min-h-[85vh] flex justify-center items-center text-center text-lighting laptop:min-h-[100vh] laptop:text-left laptop:pt-[14rem]">
@@ -35,13 +56,7 @@ function Destination() {
             </h5>
 
             <figure className="w-[17rem] h-[17rem] mx-auto my-[3rem] tablet:w-[30rem] tablet:h-[30rem]  pre-laptop:ml-[0] pre-laptop:mt-auto laptop:w-[44.5rem] laptop:h-[44.5rem]">
-              <Image
-                className="travel-img w-full h-full transition-all duration-[450ms] ease-in-out"
-                src={travels[0].travelImg}
-                alt={travels[0].travelName}
-                width={"200"}
-                height={"200"}
-              />
+              <Swiper modules={[EffectFade]}>{carouselImages}</Swiper>
             </figure>
           </header>
 
@@ -64,16 +79,16 @@ function Destination() {
                     }
                     className="tracking-[1px] laptop:tracking-[2px]"
                   >
-                    {travel.travelName}
+                    {travel.name}
                   </button>
                 </li>
               ))}
             </ul>
 
-            <h2 className="text-h2 font-Bellefair">{travels[0].travelName}</h2>
+            <h2 className="text-h2 font-Bellefair">{travels[0].name}</h2>
 
             <p className="max-w-[57rem] text-body-text text-light-blue mb-[3rem] tablet:mb-[4rem] laptop:max-w-[47rem]">
-              {travels[0].travelParagraph}
+              {travels[0].description}
             </p>
 
             <hr className="border-lighting/[.25] mb-[2rem]"></hr>
@@ -84,7 +99,7 @@ function Destination() {
                   AVG. DISTANCE
                 </p>
                 <h5 className="text-sub-h1 font-Bellefair">
-                  {travels[0].travelDistance}
+                  {travels[0].distance}
                 </h5>
               </div>
               <div className="tablet:p-[2rem] tablet:ml-[1rem]">
@@ -92,7 +107,7 @@ function Destination() {
                   EST. TRAVEL TIME
                 </p>
                 <h5 className="text-sub-h1 font-Bellefair">
-                  {travels[0].travelTime}
+                  {travels[0].time}
                 </h5>
               </div>
             </div>
