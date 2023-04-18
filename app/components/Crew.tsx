@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { handleUpdate } from "../utils/animateImgs";
-import { crewMembers } from "../utils/data";
-import { CONTAINER, CREW } from "../utils/tailwindClasses";
+"use client";
+import { handleUpdate } from "@/utils/animateImgs";
+import { crewMembers } from "@/utils/data";
+import { CONTAINER, CREW } from "@/utils/tailwindClasses";
+import { useEffect, useState } from "react";
 
-export default function Crew() {
+function Crew() {
   //state for active crew member
   const [activeCrewMember, setActiveCrewMember] = useState([
     ...Object.values(crewMembers[0]),
@@ -73,3 +74,5 @@ export default function Crew() {
     </div>
   );
 }
+
+export default Crew;

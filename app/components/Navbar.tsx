@@ -1,4 +1,3 @@
-"use client";
 import { NavBarLinks } from "../../utils/data";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,19 +6,21 @@ import CloseNavButton from "./CloseNavButton";
 
 export default function Navbar() {
   //handling toggling navbar menu
-  const handleToggle = (btnType: string) => {
-    // const openBtn = document.getElementById("open") as HTMLElement;
-    // const navbar = document.getElementById("main-nav") as HTMLElement;
-    // navbar.classList.toggle("translate-x-full");
-    // navbar.classList.toggle("hidden");
-    // if (btnType === "open") {
-    //   openBtn.style.visibility = "hidden";
-    //   return;
-    // }
-    // if (btnType === "close") {
-    //   openBtn.style.visibility = "visible";
-    //   return;
-    // }
+  const handleToggle = async (btnType: string) => {
+    "use server";
+    console.log(document);
+    const openBtn = document.getElementById("open") as HTMLElement;
+    const navbar = document.getElementById("main-nav") as HTMLElement;
+    navbar.classList.toggle("translate-x-full");
+    navbar.classList.toggle("hidden");
+    if (btnType === "open") {
+      openBtn.style.visibility = "hidden";
+      return;
+    }
+    if (btnType === "close") {
+      openBtn.style.visibility = "visible";
+      return;
+    }
   };
   return (
     <header className="flex items-center text-lighting p-[2.4rem] uppercase tablet:py-0 tablet:pr-0 tablet:pl-[4rem] tablet:min-h-[9.6rem] laptop:pl-[5.5rem] laptop:fixed laptop:top-[4rem] laptop:w-[100%]">

@@ -1,9 +1,10 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { handleUpdate } from "../../utils/animateImgs";
 import { technologies } from "../../utils/data";
 import { CONTAINER, TECHNOLOGY } from "../../utils/tailwindClasses";
 
-export default function Technology() {
+function Technology() {
   //change between portrait/landsacpe image
   const [isPortrait, setIsPortrait] = useState(window.innerWidth);
   window.addEventListener("resize", () => {
@@ -93,3 +94,5 @@ export default function Technology() {
     </div>
   );
 }
+
+export default Technology;
