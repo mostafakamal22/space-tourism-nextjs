@@ -20,8 +20,8 @@ function Crew() {
         <SwiperSlide key={crew.id}>
           <Image
             src={crew.image}
-            width={"200"}
-            height={"200"}
+            width={"1000"}
+            height={"1000"}
             alt={crew.name}
           />
         </SwiperSlide>
