@@ -19,9 +19,10 @@ function Destination() {
         <SwiperSlide key={travel.id}>
           <Image
             src={travel.image}
-            width={"200"}
-            height={"200"}
+            width={"1000"}
+            height={"1000"}
             alt={travel.name}
+            loading="lazy"
           />
         </SwiperSlide>
       )),

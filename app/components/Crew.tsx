@@ -23,6 +23,7 @@ function Crew() {
             width={"1000"}
             height={"1000"}
             alt={crew.name}
+            loading="lazy"
           />
         </SwiperSlide>
       )),
