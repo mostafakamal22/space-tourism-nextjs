@@ -1,14 +1,11 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Technology, technologies } from "../../utils/data";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { EffectFade } from "swiper";
 
 function Technology() {
-  //change between portrait/landsacpe image
-  const [isPortrait, setIsPortrait] = useState(window.innerWidth);
-
   //state for active crew member
   const [activeTechnology, setActiveTechnology] = useState<Technology>(
     technologies[0]
@@ -21,27 +18,20 @@ function Technology() {
       technologies.map((technology) => (
         <SwiperSlide key={technology.id}>
           <Image
-            src={isPortrait >= 992 ? technology.image[1] : technology.image[0]}
-            width={"200"}
-            height={"200"}
+            src={
+              window.innerWidth >= 992
+                ? technology.image[1]
+                : technology.image[0]
+            }
+            width={"1000"}
+            height={"1000"}
             alt={technology.name}
+            loading="lazy"
           />
         </SwiperSlide>
       )),
-    [isPortrait]
+    []
   );
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setIsPortrait(window.innerWidth);
-    });
-
-    return () => {
-      window.addEventListener("resize", () => {
-        setIsPortrait(window.innerWidth);
-      });
-    };
-  }, [isPortrait]);
 
   return (
     <div
@@ -75,7 +65,11 @@ function Technology() {
             <ul className="flex justify-center mb-[2rem] pre-laptop:col-start-1 pre-laptop:col-end-2 pre-laptop:row-start-1 pre-laptop:row-end-4 pre-laptop:self-center pre-laptop:justify-self-center  pre-laptop:flex-col pre-laptop:mb-0">
               {technologies.map((technology, index) => (
                 <li
-                  className="flex justify-center items-center text-sub-h2 font-Bellefair font-bold w-[4rem] h-[4rem] rounded-full border-[.1rem] border-lighting/[.25] mx-[.5rem] transition-all tablet:mx-[.75rem] pre-laptop:mx-0 pre-laptop:my-[1.6rem]"
+                  className={`flex justify-center items-center cursor-pointer text-sub-h2 font-Bellefair font-bold w-[4rem] h-[4rem] rounded-full border-[.1rem] border-lighting/[.25] mx-[.5rem] transition-all tablet:mx-[.75rem] pre-laptop:mx-0 pre-laptop:my-[1.6rem] ${
+                    technology.id === activeTechnology.id
+                      ? "bg-lighting text-darking"
+                      : "bg-transparent"
+                  }`}
                   key={technology.id}
                   onClick={() => swiperRef?.current?.swiper?.slideTo(index)}
                 >
