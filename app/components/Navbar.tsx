@@ -8,7 +8,7 @@ export default function Navbar() {
   //handling toggling navbar menu
   const handleToggle = async (btnType: string) => {
     "use server";
-    console.log(document);
+
     const openBtn = document.getElementById("open") as HTMLElement;
     const navbar = document.getElementById("main-nav") as HTMLElement;
     navbar.classList.toggle("translate-x-full");
@@ -39,7 +39,7 @@ export default function Navbar() {
 
       <nav
         id="main-nav"
-        className="absolute inset-0 z-[2] flex items-end flex-col pt-[3.6rem] bg-[rgba(0,0,0,.9)] transition-all duration-650 translate-x-full ease-in-out  tablet:relative tablet:block tablet: tablet:basis-[60%]  tablet:pt-0 tablet:pl-[2rem] tablet:ml-auto  tablet:self-stretch  tablet:bg-[rgba(255,255,255,.04)] tablet:translate-x-[0]"
+        className="absolute inset-0 z-[2] flex items-end flex-col pt-[3.6rem] bg-[rgba(0,0,0,.9)] transition-all duration-650 translate-x-full ease-in-out  tablet:relative tablet:block tablet: tablet:basis-[60%]  tablet:pt-0 tablet:pl-[2rem] tablet:ml-auto  tablet:self-stretch tablet:backdrop-blur-[2px] tablet:bg-[rgba(255,255,255,.04)] tablet:translate-x-[0]"
         aria-label="primary-navigation"
       >
         <CloseNavButton handleToggle={handleToggle} />
