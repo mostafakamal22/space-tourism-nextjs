@@ -64,12 +64,7 @@ function Crew() {
                   }`}
                   key={crew.id}
                   onClick={() => swiperRef?.current?.swiper?.slideTo(index)}
-                >
-                  {/* <button
-                  
-                    className="tracking-[1px] laptop:tracking-[2px]"
-                  ></button> */}
-                </li>
+                ></li>
               ))}
             </ul>
 
