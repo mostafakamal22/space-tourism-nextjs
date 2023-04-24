@@ -31,8 +31,8 @@ function Crew() {
   );
 
   return (
-    <div className="min-h-[100vh] font-Barlow  bg-no-repeat bg-cover bg-center bg-crew-mobile tablet:bg-crew-tablet laptop:bg-crew-desktop">
-      <main className="min-h-[85vh] flex justify-center items-center text-center text-lighting laptop:min-h-[100vh] laptop:text-left laptop:pt-[14rem]">
+    <div className="min-h-[100vh] flex justify-center items-center py-20 px-3 overflow-hidden font-Barlow  bg-no-repeat bg-cover bg-center bg-crew-mobile tablet:bg-crew-tablet laptop:bg-crew-desktop">
+      <main className="w-full min-h-[85vh] flex justify-center items-center text-center text-lighting laptop:min-h-[100vh] laptop:text-left laptop:pt-[14rem]">
         <section className="h-[100%] w-[100%] max-w-[130rem] mx-[3rem] flex flex-col items-center tablet:p-[3rem] tablet:pb-0 pre-laptop:grid pre-laptop:grid-cols-[1fr_1fr] pre-laptop:grid-rows-[.25fr_.75fr] pre-laptop:gap-4 laptop:mx-[4rem]">
           <header className="w-[100%] text-center pre-laptop:col-span-1 pre-laptop:row-span-1 pre-laptop:self-end">
             <h5 className="text-h5 tracking-[.3rem] uppercase tablet:text-left tablet:text-[2rem] laptop:text-[2.8rem] laptop:tracking-[.3rem]">

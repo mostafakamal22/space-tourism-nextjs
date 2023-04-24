@@ -8,7 +8,6 @@ export default function Navbar() {
   //handling toggling navbar menu
   const handleToggle = async (btnType: string) => {
     "use server";
-
     const openBtn = document.getElementById("open") as HTMLElement;
     const navbar = document.getElementById("main-nav") as HTMLElement;
     navbar.classList.toggle("translate-x-full");
@@ -23,7 +22,7 @@ export default function Navbar() {
     }
   };
   return (
-    <header className="flex items-center text-lighting p-[2.4rem] uppercase tablet:py-0 tablet:pr-0 tablet:pl-[4rem] tablet:min-h-[9.6rem] laptop:pl-[5.5rem] laptop:fixed laptop:z-20 laptop:top-[4rem] laptop:w-[100%]">
+    <header className="fixed z-20 top-0 w-[100%] flex items-center text-lighting p-[2.4rem] uppercase tablet:py-0 tablet:pr-0 tablet:pl-[4rem] tablet:min-h-[9.6rem] laptop:pl-[5.5rem] laptop:fixed   laptop:top-[4rem] laptop:w-[100%]">
       <Link href="/">
         <Image
           className="w-[4rem] tablet:w-[4.8rem]"
