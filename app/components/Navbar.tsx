@@ -15,6 +15,13 @@ function Navbar() {
   const handleToggle = async (btnType: string) => {
     const openBtn = document.getElementById("open") as HTMLElement;
 
+    if (
+      btnType === "close" &&
+      navRef.current?.classList.contains("translate-x-full")
+    ) {
+      return;
+    }
+
     navRef.current?.classList.toggle("translate-x-full");
 
     if (btnType === "open") {
