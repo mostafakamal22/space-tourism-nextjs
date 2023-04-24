@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Technology, technologies } from "../../utils/data";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import Image from "next/image";
@@ -11,6 +11,12 @@ function Technology() {
     technologies[0]
   );
 
+  const [width, setWidth] = useState<number>(0);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
   const swiperRef = useRef<SwiperRef>(null);
 
   const carouselImages = useMemo(
@@ -18,11 +24,7 @@ function Technology() {
       technologies.map((technology) => (
         <SwiperSlide key={technology.id}>
           <Image
-            src={
-              window?.innerWidth >= 992
-                ? technology.image[1]
-                : technology.image[0]
-            }
+            src={width >= 992 ? technology.image[1] : technology.image[0]}
             width={"1000"}
             height={"1000"}
             alt={technology.name}
@@ -30,7 +32,7 @@ function Technology() {
           />
         </SwiperSlide>
       )),
-    []
+    [width]
   );
 
   return (
