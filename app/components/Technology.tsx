@@ -19,7 +19,7 @@ function Technology() {
         <SwiperSlide key={technology.id}>
           <Image
             src={
-              window.innerWidth >= 992
+              window?.innerWidth >= 992
                 ? technology.image[1]
                 : technology.image[0]
             }
