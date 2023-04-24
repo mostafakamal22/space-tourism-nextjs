@@ -30,7 +30,7 @@ function Destination() {
   );
 
   return (
-    <div className="min-h-[100vh] flex justify-center items-center py-20 px-3 overflow-hidden bg-no-repeat bg-cover bg-center bg-destination-mobile tablet:bg-destination-tablet laptop:bg-destination-desktop">
+    <div className="min-h-[100vh] flex justify-center items-center py-[15vh] laptop:py-0 px-3 overflow-hidden bg-no-repeat bg-cover bg-center bg-destination-mobile tablet:bg-destination-tablet laptop:bg-destination-desktop">
       <main className="w-full min-h-[85vh] flex justify-center items-center text-center text-lighting laptop:min-h-[100vh] laptop:text-left laptop:pt-[14rem]">
         <section className="h-[100%] w-[100%] max-w-[130rem] mx-[3rem] flex flex-col items-center tablet:p-[3rem] pre-laptop:flex-row pre-laptop:space-between  pre-laptop:items-end laptop:mx-[4rem]">
           <header className="w-[100%] text-center pre-laptop:self-stretch pre-laptop:flex pre-laptop:flex-col laptop:w-auto">

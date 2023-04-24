@@ -36,11 +36,11 @@ function Technology() {
   return (
     <div
       className={
-        "min-h-[100vh] flex justify-center items-center py-20 px-3 overflow-hidden bg-no-repeat bg-cover bg-center bg-technology-mobile tablet:bg-technology-tablet laptop:bg-technology-desktop"
+        "min-h-[100vh] flex justify-center items-center py-[15vh] laptop:py-0 px-3 overflow-hidden bg-no-repeat bg-cover bg-center bg-technology-mobile tablet:bg-technology-tablet laptop:bg-technology-desktop"
       }
     >
       <main className="w-full min-h-[85vh] flex justify-center items-center text-center text-lighting laptop:min-h-[100vh] laptop:text-left laptop:pt-[14rem]">
-        <section className="h-[100%] w-[100%] max-w-[130rem] flex flex-col items-center tablet:p-[3rem] tablet:px-0 pre-laptop:grid pre-laptop:grid-cols-[1.2fr_.8fr] pre-laptop:grid-rows-[.25fr_.75fr] pre-laptop:gap-4 pre-laptop:mx-[3rem] laptop:mx-[4rem]">
+        <section className="self-start h-[100%] w-[100%] max-w-[130rem] flex flex-col items-center tablet:p-[3rem] tablet:px-0 pre-laptop:grid pre-laptop:grid-cols-[1.2fr_.8fr] pre-laptop:grid-rows-[.25fr_.75fr] pre-laptop:gap-4 pre-laptop:mx-[3rem] laptop:mx-[4rem]">
           <header className="w-[100%] text-center tablet:px-[3rem] pre-laptop:col-span-1 pre-laptop:row-span-1">
             <h5 className="text-h5 tracking-[.3rem] uppercase tablet:text-left tablet:text-[2rem] laptop:text-[2.8rem] laptop:tracking-[.3rem] laptop:mb-[3rem]">
               <span className="text-lighting/[.25]">03</span> SPACE LAUNCH 101
