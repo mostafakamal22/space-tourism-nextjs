@@ -27,8 +27,6 @@ function Navbar() {
     }
   };
 
-  console.log(pathname === NavBarLinks[2][2]);
-  console.log();
   return (
     <header className="fixed z-20 top-0 w-[100%] flex items-center text-lighting p-[2.4rem] uppercase tablet:py-0 tablet:pr-0 tablet:pl-[4rem] tablet:min-h-[9.6rem] laptop:pl-[5.5rem] laptop:fixed   laptop:top-[4rem] laptop:w-[100%]">
       <Link href="/">
@@ -59,6 +57,7 @@ function Navbar() {
               className={`mb-[3rem] relative after:w-[80%]  after:absolute after:transition-all  after:border-[0.2rem] after:opacity-[50%] after:ease-in-out  hover:after:visible tablet:mb-0 tablet:flex tablet:items-center after:bottom-[-.25rem] ${
                 pathname === link[2] ? "after:visible" : "after:invisible"
               }`}
+              onClick={() => handleToggle("close")}
             >
               <Link
                 className="w-full block text-[1.6rem] tracking-[2.7px]"
