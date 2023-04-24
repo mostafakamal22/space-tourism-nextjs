@@ -1,17 +1,19 @@
+"use client";
 import { NavBarLinks } from "../../utils/data";
 import Link from "next/link";
 import Image from "next/image";
 import OpenNavButton from "./OpenNavButton";
 import CloseNavButton from "./CloseNavButton";
+import { useRef } from "react";
 
-export default function Navbar() {
+function Navbar() {
+  const navRef = useRef<HTMLElement | null>(null);
   //handling toggling navbar menu
   const handleToggle = async (btnType: string) => {
-    "use server";
     const openBtn = document.getElementById("open") as HTMLElement;
-    const navbar = document.getElementById("main-nav") as HTMLElement;
-    navbar.classList.toggle("translate-x-full");
-    navbar.classList.toggle("hidden");
+
+    navRef.current?.classList.toggle("translate-x-full");
+
     if (btnType === "open") {
       openBtn.style.visibility = "hidden";
       return;
@@ -37,8 +39,9 @@ export default function Navbar() {
       <hr className="hidden m-auto border-[rgba(255,255,255,.25)] translate-x-[10%] laptop:block laptop:w-[40%]" />
 
       <nav
+        ref={navRef}
         id="main-nav"
-        className="absolute inset-0 z-[2] flex items-end flex-col pt-[3.6rem] bg-[rgba(0,0,0,.9)] transition-all duration-650 translate-x-full ease-in-out  tablet:relative tablet:block tablet: tablet:basis-[60%]  tablet:pt-0 tablet:pl-[2rem] tablet:ml-auto  tablet:self-stretch tablet:backdrop-blur-[2px] tablet:bg-[rgba(255,255,255,.04)] tablet:translate-x-[0]"
+        className="absolute inset-0 z-[50] h-screen  flex items-end flex-col pt-[3.6rem] bg-[rgba(0,0,0,.9)] transition-all duration-650 translate-x-full ease-in-out   tablet:relative tablet:block tablet:h-auto tablet:basis-[60%]  tablet:pt-0 tablet:pl-[2rem] tablet:ml-auto  tablet:self-stretch tablet:backdrop-blur-[2px] tablet:bg-[rgba(255,255,255,.04)] tablet:translate-x-[0]"
         aria-label="primary-navigation"
       >
         <CloseNavButton handleToggle={handleToggle} />
@@ -65,3 +68,5 @@ export default function Navbar() {
     </header>
   );
 }
+
+export default Navbar;
