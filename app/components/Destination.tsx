@@ -58,7 +58,7 @@ function Destination() {
             <ul className="flex justify-center mb-[2rem] laptop:justify-start">
               {travels.map((travel, index) => (
                 <li
-                  className={`text-nav-link text-light-blue ml-[1rem] z-1 relative after:w-[80%] after:absolute after:transition-all  after:border-[0.2rem] after:opacity-[50%] after:ease-in-out after:bottom-[-.25rem] after:left-[0]  hover:after:visible ${
+                  className={`text-nav-link text-light-blue ml-[1rem] z-1 relative after:w-[80%] after:absolute after:transition-all  after:border-[0.2rem] after:opacity-[50%] after:ease-in-out after:bottom-[-.25rem] after:left-[0] pre-laptop:hover:after:visible ${
                     travel.id === activeTravel.id
                       ? "after:visible"
                       : "after:invisible"

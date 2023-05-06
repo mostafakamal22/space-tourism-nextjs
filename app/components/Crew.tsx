@@ -58,7 +58,7 @@ function Crew() {
             <ul className="flex justify-center mb-[2rem] tablet:order-last laptop:justify-start">
               {crewMembers.map((crew, index) => (
                 <li
-                  className={`w-[1rem] h-[1rem] rounded-full  mx-[.5rem] cursor-pointer transition-all duration-700 hover:bg-lighting tablet:mx-[.75rem] pre-laptop:mx-[1.2rem] pre-laptop:w-[1.5rem] pre-laptop:h-[1.5rem] ${
+                  className={`w-[1rem] h-[1rem] rounded-full  mx-[.5rem] cursor-pointer transition-all duration-700  pre-laptop:hover:bg-lighting tablet:mx-[.75rem] pre-laptop:mx-[1.2rem] pre-laptop:w-[1.5rem] pre-laptop:h-[1.5rem] ${
                     crew.id === activeCrewMember.id
                       ? "bg-lighting"
                       : "bg-light-blue"
